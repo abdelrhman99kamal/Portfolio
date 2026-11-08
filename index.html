@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abdelrhman Kamal</title>
-    <link rel="icon" type="image/jpeg" href="images/logo_white.jpg" />
+    <link rel="icon" type="image/jpeg" href="images/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap"
@@ -16,7 +16,7 @@
     />
     <style>
       *,
-      *::before, 
+      *::before,
       *::after {
         box-sizing: border-box;
         margin: 0;
@@ -58,18 +58,24 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 6vw;
+        /* align logo/links with the 1100px content column */
+        padding: 0 max(6vw, calc((100vw - 1100px) / 2 + 6vw));
         height: 64px;
         background: rgba(10, 15, 26, 0.92);
         backdrop-filter: blur(18px);
         border-bottom: 1px solid var(--border);
       }
       .logo {
-        font-family: "Syne", sans-serif;
-        font-size: 1.3rem;
-        font-weight: 800;
-        color: var(--blue);
+        display: flex;
+        align-items: center;
+        height: 100%;
         text-decoration: none;
+      }
+      .logo img {
+        height: 46px;
+        width: auto;
+        display: block;
+        object-fit: contain;
       }
       .nav-links {
         display: flex;
@@ -247,7 +253,7 @@
       }
       .hero-photo {
         position: relative;
-        width: 300px;
+        width: 340px;
         flex-shrink: 0;
       }
       .hero-photo-frame {
@@ -520,6 +526,11 @@
       }
       .proj-card:hover .proj-thumb img {
         transform: scale(1.04);
+      }
+      /* app logos: show whole logo, never crop, keep clear of the badge */
+      .proj-thumb.logo-thumb img {
+        object-fit: contain;
+        padding: 2.6rem 1.2rem 1rem;
       }
       .proj-thumb .placeholder {
         width: 100%;
@@ -846,6 +857,14 @@
       .modal-img .modal-placeholder {
         font-size: 5rem;
       }
+      /* app logos: show whole logo on the same background as the cards */
+      .modal-img.logo {
+        background: var(--surface2);
+      }
+      .modal-img.logo img {
+        object-fit: contain;
+        padding: 2.5rem;
+      }
 
       .modal-content {
         padding: 2.2rem 2rem;
@@ -998,9 +1017,7 @@
     <!-- NAV -->
     <nav>
       <a href="#hero" class="logo">
-        <a href="#hero" class="logo">
-          <img src="images/logo_blue-remove_bg.png" alt="AK." width="160" />
-        </a>
+        <img src="images/logo_without_bg.png" alt="AK." />
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -1025,13 +1042,16 @@
         <div>
           <p class="hero-greeting">Hi, my name is</p>
           <h1 class="hero-name">Abdelrhman<br />Kamal.</h1>
-          <p class="hero-title">Mobile App Developer · Flutter</p>
+          <p class="hero-title">
+            Junior Flutter Developer · Mobile App Developer
+          </p>
           <p class="hero-bio">
-            Flutter developer specialized in Clean Architecture & BLoC 
-            state management, with 4+ projects integrating REST APIs, 
-            real-time data, and local storage. 🥇 IoT Competition winner. 
-            ECPC 2024 competitor. Technical Mentor at GDG & ICPC 
-            NATU. 95.25% GPA — Top 5 in department.
+            Flutter developer building cross-platform apps with Clean
+            Architecture & BLoC/Cubit. Khedma won a 60,000 EGP ASRT development
+            grant, and my parking system took 🥇 1st place in the IoT & Embedded
+            Systems Competition. Head of the Flutter team at GDG on Campus and
+            ICPC NATU mentor. Ranked 5th in my department with a 90.92%
+            cumulative average.
           </p>
           <div class="hero-btns">
             <a href="#projects" class="btn-solid">View My Work</a>
@@ -1041,7 +1061,7 @@
         <div class="hero-photo">
           <div class="hero-photo-frame">
             <img
-              src="images/abdo.png"
+              src="images/abdo3.png"
               alt="Abdelrhman Kamal"
               onerror="
                 this.style.display = 'none';
@@ -1065,16 +1085,17 @@
         <div class="about-grid reveal">
           <div class="about-text">
             <p>
-              Flutter Developer specialized in Clean Architecture and BLoC state 
-              management, with 4+ projects integrating REST APIs, real-time data, 
-              and local storage. Achieved a 95.25% GPA, ranking in the top 5 of the 
-              department at NATU.
+              Flutter Developer building cross-platform apps with Clean
+              Architecture and BLoC/Cubit. I delivered two graduation projects:
+              a computer vision parking system (1st place, IoT & Embedded
+              Systems Competition) and Khedma, a service marketplace app backed
+              by a 60,000 EGP ASRT development grant.
             </p>
             <p>
-              Award-winning innovator (1st place IoT Competition) and ECPC 2024 
-              competitor. Serving as a Technical Mentor at GDG On Campus and 
-              ICPC NATU, actively contributing to the tech community and helping 
-              others grow in their developer journey.
+              I have built 4+ applications integrating Firebase, REST APIs, and
+              real-time data. I'm an ICPC NATU mentor and Head of the Flutter
+              team at GDG on Campus, and I graduated from NATU with a 90.92%
+              cumulative average, ranked 5th in my department.
             </p>
             <div class="about-meta">
               <div>
@@ -1083,7 +1104,7 @@
               </div>
               <div>
                 <div class="meta-label">Location</div>
-                <div class="meta-value">Egypt</div>
+                <div class="meta-value">Cairo, Egypt</div>
               </div>
               <div style="grid-column: span 2">
                 <div class="meta-label">Email</div>
@@ -1144,20 +1165,6 @@
               />
               <span>Java</span>
             </div>
-            <div class="skill-icon-card">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                alt="Python"
-              />
-              <span>Python</span>
-            </div>
-            <div class="skill-icon-card">
-              <img
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg"
-                alt="C"
-              />
-              <span>C</span>
-            </div>
           </div>
 
           <p class="skills-section-label">📱 Mobile & Frameworks</p>
@@ -1189,6 +1196,20 @@
                 alt="Cubit"
               />
               <span>Cubit</span>
+            </div>
+            <div class="skill-icon-card">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                alt="Provider"
+              />
+              <span>Provider</span>
+            </div>
+            <div class="skill-icon-card">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                alt="Responsive UI"
+              />
+              <span>Responsive UI</span>
             </div>
           </div>
 
@@ -1287,6 +1308,13 @@
               />
               <span>Android Studio</span>
             </div>
+            <div class="skill-icon-card">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg"
+                alt="Postman"
+              />
+              <span>Postman</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1302,21 +1330,78 @@
         </div>
         <div class="projects-grid reveal">
           <div class="proj-card">
+            <div class="proj-thumb logo-thumb">
+              <img
+                src="images/sanad_logo.png"
+                alt="Sanad App"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="placeholder" style="display: none">🛠️</div>
+              <div class="proj-badge">🎓 DEPI Graduation Project</div>
+              <div class="proj-overlay"><span>View Details ↗</span></div>
+            </div>
+            <div class="proj-body">
+              <h3 class="proj-name">Sanad — Service Booking Platform</h3>
+              <p class="proj-desc">
+                Cross-platform app connecting clients with helpers, built with
+                Clean Architecture. Features an automated Firestore-driven task
+                progress system and a chat active only during ongoing tasks.
+              </p>
+              <div class="proj-stack">
+                <span>Flutter</span><span>Cubit/BLoC</span><span>Firebase</span
+                ><span>GetIt</span><span>GoRouter</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-thumb logo-thumb">
+              <img
+                src="images/khedma_logo.png"
+                alt="Khedma App"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div class="placeholder" style="display: none">🤝</div>
+              <div class="proj-badge">💰 60,000 EGP ASRT Grant</div>
+              <div class="proj-overlay"><span>View Details ↗</span></div>
+            </div>
+            <div class="proj-body">
+              <h3 class="proj-name">Khedma — Smart Service Platform</h3>
+              <p class="proj-desc">
+                Scalable cross-platform app connecting users with service
+                providers. Awarded a 60,000 EGP development grant by ASRT to
+                accelerate market launch.
+              </p>
+              <div class="proj-stack">
+                <span>Flutter</span><span>Clean Arch</span
+                ><span>Cubit/BLoC</span><span>Firebase</span
+                ><span>Supabase</span><span>Figma</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card">
             <div class="proj-thumb">
               <div class="placeholder">🅿️</div>
-              <div class="proj-badge">🥇 1st Place — IoT Competition</div>
+              <div class="proj-badge">🥇 1st Place — IoT & Embedded</div>
               <div class="proj-overlay"><span>View Details ↗</span></div>
             </div>
             <div class="proj-body">
               <h3 class="proj-name">Vision-Based Parking System</h3>
               <p class="proj-desc">
-                Contributed the Flutter mobile interface for an AI-powered
-                parking detection system built by a cross-functional team. 🥇
-                1st place among universities in Assiut.
+                AI system detecting parking spots in real time using computer
+                vision, with a Flutter mobile interface. 🥇 1st place among
+                Assiut universities.
               </p>
               <div class="proj-stack">
                 <span>Python</span><span>OpenCV</span><span>Flutter</span
-                ><span>Dart</span><span>AI/ML</span>
+                ><span>Dart</span><span>Firebase</span>
               </div>
             </div>
           </div>
@@ -1472,14 +1557,16 @@
                 and Energy Technology
               </div>
               <div class="edu-detail">
-                Current Average:
-                <strong style="color: var(--bright)">95.25%</strong>
-                &nbsp;·&nbsp; Class Rank:
-                <strong style="color: var(--bright)">5th</strong>
+                Cumulative Average:
+                <strong style="color: var(--bright)">90.92%</strong>
+                &nbsp;·&nbsp; Ranked:
+                <strong style="color: var(--bright)">5th in Department</strong>
+                &nbsp;·&nbsp; Graduation Project:
+                <strong style="color: var(--bright)">Excellent</strong>
               </div>
             </div>
             <div class="edu-right">
-              <div class="edu-date">Oct 2024 – Jun 2026</div>
+              <div class="edu-date">Oct 2022 – Jun 2026</div>
               <div class="edu-badge">🏆 Top 5</div>
             </div>
           </div>
@@ -1516,14 +1603,13 @@
             </div>
           </div>
           <div class="exp-card">
-            <div class="exp-date">Oct 2024 – Present</div>
+            <div class="exp-date">Oct 2024 – Oct 2026</div>
             <div>
-              <div class="exp-role">Flutter Team Member</div>
+              <div class="exp-role">Head Flutter Team</div>
               <div class="exp-company">GDG on Campus · Assiut University</div>
               <div class="exp-desc">
-                Collaborate with the Flutter team to build projects and share
-                mobile development knowledge within the university tech
-                community.
+                Lead the Flutter team to build projects and share knowledge
+                within the tech community.
               </div>
               <div class="exp-tags">
                 <span class="exp-tag">Flutter</span
@@ -1612,7 +1698,7 @@
     </section>
 
     <footer>
-      <span>© 2024 Abdelrhman Kamal</span>
+      <span>© 2026 Abdelrhman Kamal</span>
       <span>Egypt 🇪🇬</span>
     </footer>
 
@@ -1678,12 +1764,56 @@
       // Project data for modal
       const projectsData = [
         {
+          name: "Sanad — Service Booking Platform",
+          shortDesc: "Cross-platform app connecting clients with helpers.",
+          desc: "DEPI graduation project (Jan 2026 – Jul 2026): a cross-platform app connecting clients with helpers, built with Clean Architecture. I engineered an automated Firestore-driven task progress system and a chat that is only active during ongoing tasks.",
+          stack: [
+            "Flutter",
+            "Dart",
+            "Clean Architecture",
+            "Cubit/BLoC",
+            "Firebase (Firestore, Auth, FCM)",
+            "GetIt",
+            "GoRouter",
+            "Node.js (Vercel)",
+            "ImgBB API",
+          ],
+          badge: "🎓 DEPI Graduation Project",
+          githubLink: null,
+          viewLink: null,
+          certificateLink: null,
+          emoji: "🛠️",
+          img: "images/sanad_logo.png",
+          logo: true,
+        },
+        {
+          name: "Khedma — Smart Service Platform",
+          shortDesc: "Scalable service marketplace backed by an ASRT grant.",
+          desc: "Year 4 graduation project (Oct 2025 – Jun 2026): a scalable cross-platform application connecting users with service providers. Focused on maintainable architecture and collaborating with UI/UX designers to implement pixel-perfect, responsive interfaces. Awarded a 60,000 EGP development grant by the Academy of Scientific Research & Technology (ASRT) to accelerate market launch.",
+          stack: [
+            "Flutter",
+            "Dart",
+            "Clean Architecture",
+            "Cubit/BLoC",
+            "Firebase",
+            "Supabase",
+            "Figma",
+          ],
+          badge: "💰 60,000 EGP ASRT Grant",
+          githubLink: null,
+          viewLink: null,
+          certificateLink: null,
+          emoji: "🤝",
+          img: "images/khedma_logo.png",
+          logo: true,
+        },
+        {
           name: "Vision-Based Parking System",
           shortDesc:
-            "Flutter mobile interface for an AI-powered parking detection system. 🥇 1st place among universities in Assiut.",
-          desc: "Contributed the Flutter mobile interface for an AI-powered parking detection system built by a cross-functional team. The backend used Python and OpenCV to detect available parking spots in real time through computer vision. My role focused on building the mobile app that communicated with the system and displayed live parking availability to users. The project won 1st place among universities in Assiut in an IoT competition.",
-          stack: ["Python", "OpenCV", "Flutter", "Dart", "AI/ML"],
-          badge: "🥇 1st Place — IoT Competition",
+            "AI system detecting parking spots in real time, with a Flutter mobile interface. 🥇 1st place among universities in Assiut.",
+          desc: "Year 2 graduation project (Feb 2024 – May 2024): an AI system that detects parking spots in real time using computer vision (Python and OpenCV), with a Flutter mobile interface that displays live parking availability. The project won 1st place in the IoT & Embedded Systems Competition among Assiut universities.",
+          stack: ["Python", "OpenCV", "Flutter", "Dart", "Firebase"],
+          badge: "🥇 1st Place — IoT & Embedded Systems",
           githubLink: null,
           viewLink: null,
           certificateLink:
@@ -1771,6 +1901,7 @@
         const p = projectsData[idx];
         // Image
         const imgEl = document.getElementById("modalImg");
+        imgEl.classList.toggle("logo", !!p.logo);
         if (p.img) {
           imgEl.innerHTML = `<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <div class="modal-placeholder" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:5rem">${p.emoji}</div>`;
